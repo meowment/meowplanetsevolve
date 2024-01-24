@@ -41,36 +41,6 @@ const modalText = {
   },
 };
 
-const Players: React.FC = () => {
-  const address = useAddress();
-  const events = useContext(EventContext).events.filter(
-    (e) =>
-      !isOwnEvent(
-        {
-          type: e.eventName as EventProps["type"],
-          data: e.data,
-        },
-        address
-      )
-  );
-
-  return (
-    <div className="space-y-2 mt-3 w-full max-h-48 overflow-auto">
-      {events && events?.length > 0 ? (
-        events?.map((e) => (
-          <Event
-            key={`${e.transaction.transactionHash}_${e.transaction.logIndex}`}
-            type={e.eventName as EventProps["type"]}
-            data={e.data}
-          />
-        ))
-      ) : (
-        <p>No events found</p>
-      )}
-    </div>
-  );
-};
-
 const Modal: React.FC<ModalProps> = ({ isOpen, close, level }) => {
   const { refetch, targetAddress, setTargetAddress } = useContext(GameContext);
   const [error, setError] = useState<Error | null>(null);
