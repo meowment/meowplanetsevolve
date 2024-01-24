@@ -6,7 +6,6 @@ import { EventContext } from "../contexts/event-context";
 import { GameContext } from "../contexts/game-context";
 import { CONTRACT_ADDR } from "../utils/constants";
 import { isOwnEvent } from "../utils/utils";
-import { Event, EventProps } from "./events";
 
 type ModalProps = {
   isOpen: boolean;
